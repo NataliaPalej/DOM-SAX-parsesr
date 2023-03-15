@@ -57,23 +57,6 @@ public class SAX extends DefaultHandler {
     }
 //end of main
 
-    // Print parsed doc in output field
-    public void printOutput(String filename) {
-        try {
-            // Create an instance of file
-            File inputFile = new File(filename);
-            // Get a SAX factory spf
-            SAXParserFactory spf = SAXParserFactory.newInstance();
-            // Get an instance of parser
-            SAXParser sp = spf.newSAXParser();
-            SAX SAXparse = new SAX();
-            // Parse the file
-            sp.parse(inputFile, SAXparse);
-        } catch (IOException | ParserConfigurationException | SAXException e) {
-            System.out.println("Error: " + e);
-        }
-    }
-
     // Event Handlers
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
