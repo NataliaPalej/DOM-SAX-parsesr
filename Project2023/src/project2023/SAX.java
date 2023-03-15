@@ -41,11 +41,30 @@ public class SAX extends DefaultHandler {
     
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+        // Check which tag are we in
         if (qName.equalsIgnoreCase("major")) {
             String name = attributes.getValue("name");
             String year = attributes.getValue("year");
             String strokePlay = attributes.getValue("strokePlay");
             System.out.println("Name: " + name + "Year: " + year + "strokePlay: " + strokePlay);
+        }
+        else if (qName.equalsIgnoreCase("winner")){
+        bwinner = true;
+        }
+        else if (qName.equalsIgnoreCase("winningScore")){
+        bwinningScore = true;
+        }
+        else if (qName.equalsIgnoreCase("courseLocation")){
+        bcourseLocation = true;
+        }
+        else if (qName.equalsIgnoreCase("course")){
+        bcourse = true;
+        }
+        else if (qName.equalsIgnoreCase("favourite")){
+        bfavourite = true;
+        }
+        else if (qName.equalsIgnoreCase("youngestCompetitor")){
+        byoungestCompetitor = true;
         }
     }
     
