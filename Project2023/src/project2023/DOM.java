@@ -27,31 +27,87 @@ public class DOM {
     }
 // End of main
     
-    // Method that runs the file 
+    // Method that runs the file
     public void runExample(){
+        // Calling the methods to test if file is parsing properly
         loadXMLFileIntoDOM();
         parseTheDOM();
         outputData();
     }
     
     // Method that loads XML file into DOM
-    private void loadXMLFileIntoDOM() {
-        //create DocumentBuilderFactory instance
+    void loadXMLFileIntoDOM() {
+        // Create DocumentBuilderFactory instance
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         
         try{
-            //create DocumentBuilder instance
+            // Create DocumentBuilder instance
             DocumentBuilder db = dbf.newDocumentBuilder();
-            //parse xml file to dom Document
-            dom = db.parse("GoldMajors.xml");
+            // Parse xml file to dom Document
+            dom = db.parse("GolfMajors.xml");
         }
         catch (IOException | ParserConfigurationException | SAXException e){
             System.out.println("Error: " + e);
         }
     }
     
-   
-
+   // Method that parse the DOM
+    void parseTheDOM(){
+        Element e = dom.getDocumentElement();
+        
+        // Get elements with a tagname "major"
+        NodeList nl = e.getElementsByTagName("major");
+        // If list not empty and not less than zero condition
+        if(nl != null && nl.getLength() > 0){
+            //loop through the items 
+            for(int i=0; i<nl.getLength(); i++){
+                Element el = (Element)nl.item(i);
+                Golf x = getGolf(el);
+                //add item to array list
+                golfMajors.add(x);
+            }
+        }
+    }
+    
+    // Method to get text from file
+    private String getTextValue(Element e, String tagName){
+        // Declare textValue 
+        String textVal = null;
+        // Get element by tagName
+        NodeList nl = e.getElementsByTagName(tagName);
+        // Condition if list not empty
+        if(nl!=null && nl.getLength() > 0){
+            Element el = (Element)nl.item(0);
+            textVal=el.getFirstChild().getNodeValue();
+        }
+        return textVal;
+    }
+    
+    // Method to get elements from file
+    private Golf getGolf(Element e){
+        String winner = getTextValue(e,"winner");
+        String winningScore = getTextValue(e,"winningScore");
+        //int winningScore = Integer.parseInt(getTextValue(e, "winningScore"));
+        String courseLocation = getTextValue(e, "courseLocation");
+        String course = getTextValue(e, "course");
+        String favourite = getTextValue(e, "favourite");
+        String youngestCompetitor = getTextValue(e, "youngestCompetitor");
+        // Get attributes
+        String name = e.getAttribute("name");
+        String year = e.getAttribute("year");
+        String strokePlay = e.getAttribute("strokePlay");
+        
+        // Create an object of class Golf
+        Golf x = new Golf(name, year, strokePlay, winner, winningScore, courseLocation, course, favourite, youngestCompetitor);
+        return x;
+    }
+    
+     void outputData(){
+        // Loop through the array to output data
+        for(Golf golf : golfMajors){
+        System.out.println(golf + "\n"); 
+        }
+    }
 }
 // End of class DOM
 
