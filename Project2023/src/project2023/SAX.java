@@ -3,7 +3,6 @@ package project2023;
 import java.io.File;
 import java.io.IOException;
 import org.xml.sax.helpers.DefaultHandler;
-import java.util.ArrayList;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -11,16 +10,16 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 public class SAX extends DefaultHandler {
-    
-    boolean bwinner = false;
-    boolean bwinningScore = false;
-    boolean bcourseLocation = false;
-    boolean bcourse = false;
-    boolean bfavourite = false;
-    boolean byoungestCompetitor = false;
+
+    boolean isWinner = false;
+    boolean isWinningScore = false;
+    boolean isCourseLocation = false;
+    boolean isCourse = false;
+    boolean isFavourite = false;
+    boolean isYoungestCompetitor = false;
 
     public static void main(String[] args) {
-        
+
         try {
             // Create an instance of file
             File inputFile = new File("GolfMajors.xml");
@@ -38,7 +37,7 @@ public class SAX extends DefaultHandler {
 
     }
 //end of main
-    
+
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         // Check which tag are we in
@@ -47,59 +46,53 @@ public class SAX extends DefaultHandler {
             String year = attributes.getValue("year");
             String strokePlay = attributes.getValue("strokePlay");
             System.out.println("Name: " + name + "Year: " + year + "strokePlay: " + strokePlay);
-        }
-        else if (qName.equalsIgnoreCase("winner")){
-        bwinner = true;
-        }
-        else if (qName.equalsIgnoreCase("winningScore")){
-        bwinningScore = true;
-        }
-        else if (qName.equalsIgnoreCase("courseLocation")){
-        bcourseLocation = true;
-        }
-        else if (qName.equalsIgnoreCase("course")){
-        bcourse = true;
-        }
-        else if (qName.equalsIgnoreCase("favourite")){
-        bfavourite = true;
-        }
-        else if (qName.equalsIgnoreCase("youngestCompetitor")){
-        byoungestCompetitor = true;
+        } else if (qName.equalsIgnoreCase("winner")) {
+            isWinner = true;
+        } else if (qName.equalsIgnoreCase("winningScore")) {
+            isWinningScore = true;
+        } else if (qName.equalsIgnoreCase("courseLocation")) {
+            isCourseLocation = true;
+        } else if (qName.equalsIgnoreCase("course")) {
+            isCourse = true;
+        } else if (qName.equalsIgnoreCase("favourite")) {
+            isFavourite = true;
+        } else if (qName.equalsIgnoreCase("youngestCompetitor")) {
+            isYoungestCompetitor = true;
         }
     }
-    
+
     @Override
     public void characters(char ch[], int start, int length) throws SAXException {
         // Get text from each tag
-        if (bwinner) {
+        if (isWinner) {
             System.out.println("Winner: " + new String(ch, start, length));
             // Set current tag to false, so we can move to another one
-            bwinner = false;
-        }
-        else if (bwinningScore){
+            isWinner = false;
+        } else if (isWinningScore) {
             System.out.println("Winning Score: " + new String(ch, start, length));
-            bwinningScore = false;
-        }
-        else if (bcourseLocation){
+            isWinningScore = false;
+        } else if (isCourseLocation) {
             System.out.println("Course Location: " + new String(ch, start, length));
-            bcourseLocation = false;
-        }
-        else if (bcourse){
+            isCourseLocation = false;
+        } else if (isCourse) {
             System.out.println("Course: " + new String(ch, start, length));
-            bcourse = false;
-        }
-        else if (bfavourite){
+            isCourse = false;
+        } else if (isFavourite) {
             System.out.println("Favourite: " + new String(ch, start, length));
-            bfavourite = false;
-        }
-        else if (byoungestCompetitor){
+            isFavourite = false;
+        } else if (isYoungestCompetitor) {
             System.out.println("Youngest Competitor: " + new String(ch, start, length));
-            byoungestCompetitor = false;
+            isYoungestCompetitor = false;
         }
+    }
 
-}
-    
-
+    @Override
+    public void endElement(String uri, String localName, String qName) throws SAXException {
+        // Check if end tag was reached 
+        if (qName.equalsIgnoreCase("major")) {
+            System.out.println("Reached End Element: " + qName);
+        }
+    }
 }
 //end of SAX class
 
