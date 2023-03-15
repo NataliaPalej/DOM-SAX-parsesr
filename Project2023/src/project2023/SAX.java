@@ -11,10 +11,15 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 public class SAX extends DefaultHandler {
+    
+    boolean bwinner = false;
+    boolean bwinningScore = false;
+    boolean bcourseLocation = false;
+    boolean bcourse = false;
+    boolean bfavourite = false;
+    boolean byoungestCompetitor = false;
 
     public static void main(String[] args) {
-
-        
         
         try {
             // Create an instance of file
@@ -33,6 +38,17 @@ public class SAX extends DefaultHandler {
 
     }
 //end of main
+    
+    @Override
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+        if (qName.equalsIgnoreCase("major")) {
+            String name = attributes.getValue("name");
+            String year = attributes.getValue("year");
+            String strokePlay = attributes.getValue("strokePlay");
+            System.out.println("Name: " + name + "Year: " + year + "strokePlay: " + strokePlay);
+        }
+    }
+    
 
 }
 //end of SAX class
