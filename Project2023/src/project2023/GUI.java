@@ -83,7 +83,7 @@ public class GUI extends JFrame implements ActionListener {
                 // Parse and run the output 
                 s.runSAX();
                 // Add amount of Golf Majors
-                infoField.setText("No of Golf Majors: " + s.golfMajors.size() + "\n");
+                infoField.setText("This is SAX parser \nNo of Golf Majors: " + s.golfMajors.size() + "\n");
                 // Iterate through Gold Majors list
                 for (Golf golf : s.golfMajors){
                     // Print it to the GUI
@@ -99,7 +99,7 @@ public class GUI extends JFrame implements ActionListener {
                 DOM d = new DOM();
                 // Call load and parse methods
                 d.runDOM();
-                infoField.setText("No of Golf Majors: " + d.golfMajors.size() + "\n");
+                infoField.setText("This is DOM parser \nNo of Golf Majors: " + d.golfMajors.size() + "\n");
                 for (Golf golf : d.golfMajors) {
                     infoField.append(golf + "\n");
                 }

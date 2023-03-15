@@ -65,15 +65,13 @@ public class SAX extends DefaultHandler {
         // Check which tag are we in
         if (qName.equalsIgnoreCase("major")) {
             tempGolf = new Golf();
-        } else if (attributes.getValue("name") != null) {
-            tempGolf.setName(attributes.getValue("name"));
-            isName = true;
-        } else if (attributes.getValue("year") != null) {
-            tempGolf.getYear();
-            isYear = true;
-        } else if (attributes.getValue("strokePlay") != null) {
-            tempGolf.getStrokePlay();
-            isStrokePlay = true;
+            // get the attributes for tag major
+            String name = attributes.getValue("name");
+            String year = attributes.getValue("year");
+            String strokePlay = attributes.getValue("strokePlay");
+            tempGolf.setName(name);
+            tempGolf.setYear(year);
+            tempGolf.setStrokePlay(strokePlay);
         } else if (qName.equalsIgnoreCase("winner")) {
             tempGolf.getWinner();
             isWinner = true;
@@ -107,13 +105,6 @@ public class SAX extends DefaultHandler {
         if (qName.equalsIgnoreCase("major")) {
             // if it did - add the element to the list
             golfMajors.add(tempGolf);
-        // get attribute of element major
-        } else if (qName.equalsIgnoreCase("name")) {
-            tempGolf.setName(tempMajor);
-        } else if (qName.equalsIgnoreCase("year")) {
-            tempGolf.setYear(tempMajor);
-        } else if (qName.equalsIgnoreCase("strokePlay")) {
-            tempGolf.setStrokePlay(tempMajor);
         } else if (qName.equalsIgnoreCase("winner")) {
             tempGolf.setWinner(tempMajor);
         } else if (qName.equalsIgnoreCase("winningScore")) {
