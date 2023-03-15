@@ -78,9 +78,21 @@ public class GUI extends JFrame implements ActionListener {
         }
         if (saxButton.isSelected()) {
             if (target == parse) {
-                //            SAX s = new SAX();
+                // Create new instance of SAX class
+                SAX s = new SAX();
+                // Parse and run the output 
+                s.runExample();
+                // Add amount of Golf Majors
+                infoField.setText("No of Golf Majors: " + s.golfMajors.size() + "\n");
+                // Iterate through Gold Majors list
+                for (Golf golf : s.golfMajors){
+                    // Print it to the GUI
+                    infoField.append(golf + "\n");
+                }
+                this.GolfAL = s.golfMajors;
+                
                 //            infoField.setText(s.run(this.fileName));
-                //            this.GolfAL = s.getGolfList();
+                //            getGolfList();
             }
         } else if (domButton.isSelected()) {
             if (target == parse) {
