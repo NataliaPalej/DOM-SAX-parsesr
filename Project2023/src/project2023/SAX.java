@@ -45,7 +45,7 @@ public class SAX extends DefaultHandler {
             String name = attributes.getValue("name");
             String year = attributes.getValue("year");
             String strokePlay = attributes.getValue("strokePlay");
-            System.out.println("Name: " + name + "Year: " + year + "strokePlay: " + strokePlay);
+            System.out.println("Name: " + name + " Year: " + year + " strokePlay: " + strokePlay);
         } else if (qName.equalsIgnoreCase("winner")) {
             isWinner = true;
         } else if (qName.equalsIgnoreCase("winningScore")) {
@@ -91,6 +91,7 @@ public class SAX extends DefaultHandler {
         // Check if end tag was reached 
         if (qName.equalsIgnoreCase("major")) {
             System.out.println("Reached End Element: " + qName);
+            System.out.println();
         }
     }
 }
