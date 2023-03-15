@@ -23,12 +23,12 @@ public class DOM {
     // Main method
     public static void main(String[] args) {
         DOM display = new DOM();
-        display.runExample();
+        display.run();
     }
 // End of main
     
     // Method that runs the file
-    public void runExample(){
+    public void run(){
         // Calling the methods to test if file is parsing properly
         loadXMLFileIntoDOM();
         parseTheDOM();

@@ -98,8 +98,7 @@ public class GUI extends JFrame implements ActionListener {
             if (target == parse) {
                 DOM d = new DOM();
                 // Call load and parse methods
-                d.loadXMLFileIntoDOM();
-                d.parseTheDOM();
+                d.run();
                 infoField.setText("No of Golf Majors: " + d.golfMajors.size() + "\n");
                 for (Golf golf : d.golfMajors) {
                     infoField.append(golf + "\n");
