@@ -15,14 +15,43 @@ import org.xml.sax.SAXException;
 
 public class DOM {
 
-    //create an array list to store the items in
+    // Create an array list to store the items in
     ArrayList<Golf> golfMajors = new ArrayList<>();
-    //declare document
+    // Declare document
     Document dom;
 
+    // Main method
     public static void main(String[] args) {
+        DOM display = new DOM();
+        display.runExample();
+    }
+// End of main
+    
+    // Method that runs the file 
+    public void runExample(){
+        loadXMLFileIntoDOM();
+        parseTheDOM();
+        outputData();
+    }
+    
+    // Method that loads XML file into DOM
+    private void loadXMLFileIntoDOM() {
+        //create DocumentBuilderFactory instance
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        
+        try{
+            //create DocumentBuilder instance
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            //parse xml file to dom Document
+            dom = db.parse("GoldMajors.xml");
+        }
+        catch (IOException | ParserConfigurationException | SAXException e){
+            System.out.println("Error: " + e);
+        }
+    }
+    
+   
 
-    }//end of main
-
-}//end of class DOM
+}
+// End of class DOM
 
