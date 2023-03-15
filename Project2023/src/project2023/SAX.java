@@ -68,6 +68,37 @@ public class SAX extends DefaultHandler {
         }
     }
     
+    @Override
+    public void characters(char ch[], int start, int length) throws SAXException {
+        // Get text from each tag
+        if (bwinner) {
+            System.out.println("Winner: " + new String(ch, start, length));
+            // Set current tag to false, so we can move to another one
+            bwinner = false;
+        }
+        else if (bwinningScore){
+            System.out.println("Winning Score: " + new String(ch, start, length));
+            bwinningScore = false;
+        }
+        else if (bcourseLocation){
+            System.out.println("Course Location: " + new String(ch, start, length));
+            bcourseLocation = false;
+        }
+        else if (bcourse){
+            System.out.println("Course: " + new String(ch, start, length));
+            bcourse = false;
+        }
+        else if (bfavourite){
+            System.out.println("Favourite: " + new String(ch, start, length));
+            bfavourite = false;
+        }
+        else if (byoungestCompetitor){
+            System.out.println("Youngest Competitor: " + new String(ch, start, length));
+            byoungestCompetitor = false;
+        }
+
+}
+    
 
 }
 //end of SAX class
