@@ -29,7 +29,7 @@ public class DOM {
     
     // Method that runs the file
     public void runDOM(String fileName){
-        // Calling the methods to test if file is parsing properly
+        // Calling the methods to parse the file
         loadXMLFileIntoDOM(fileName);
         parseTheDOM();
         outputData();
@@ -57,13 +57,12 @@ public class DOM {
         
         // Get elements with a tagname "major"
         NodeList nl = e.getElementsByTagName("major");
-        // If list not empty and not less than zero condition
+        // If list not empty and not less than zero condition loop through the items 
         if(nl != null && nl.getLength() > 0){
-            //loop through the items 
             for(int i=0; i<nl.getLength(); i++){
                 Element el = (Element)nl.item(i);
                 Golf x = getGolf(el);
-                //add item to array list
+                // Add item to array list
                 golfMajors.add(x);
             }
         }
@@ -75,7 +74,7 @@ public class DOM {
         String textVal = null;
         // Get element by tagName
         NodeList nl = e.getElementsByTagName(tagName);
-        // Condition if list not empty
+        // Condition if list not empty and not less than zero
         if(nl!=null && nl.getLength() > 0){
             Element el = (Element)nl.item(0);
             textVal=el.getFirstChild().getNodeValue();
@@ -87,7 +86,6 @@ public class DOM {
     private Golf getGolf(Element e){
         String winner = getTextValue(e,"winner");
         String winningScore = getTextValue(e,"winningScore");
-        //int winningScore = Integer.parseInt(getTextValue(e, "winningScore"));
         String courseLocation = getTextValue(e, "courseLocation");
         String course = getTextValue(e, "course");
         String favourite = getTextValue(e, "favourite");
