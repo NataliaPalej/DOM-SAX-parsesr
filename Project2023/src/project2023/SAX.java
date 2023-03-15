@@ -17,11 +17,15 @@ public class SAX extends DefaultHandler {
         
         
         try {
+            // Create an instance of file
             File inputFile = new File("GolfMajors.xml");
+            // Get a SAX factory spf
             SAXParserFactory spf = SAXParserFactory.newInstance();
+            // Get an instance of parser
             SAXParser sp = spf.newSAXParser();
             SAX SAXparse = new SAX();
             System.out.println("SAXparse.SAX.main()");
+            // Parse the file
             sp.parse(inputFile, SAXparse);
         } catch (IOException | ParserConfigurationException | SAXException e) {
             System.out.println("Error: " + e);
