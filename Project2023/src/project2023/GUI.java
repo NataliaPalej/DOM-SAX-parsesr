@@ -81,7 +81,7 @@ public class GUI extends JFrame implements ActionListener {
                 // Create new instance of SAX class
                 SAX s = new SAX();
                 // Parse and run the output 
-                s.runExample();
+                s.runSAX();
                 // Add amount of Golf Majors
                 infoField.setText("No of Golf Majors: " + s.golfMajors.size() + "\n");
                 // Iterate through Gold Majors list
@@ -98,7 +98,7 @@ public class GUI extends JFrame implements ActionListener {
             if (target == parse) {
                 DOM d = new DOM();
                 // Call load and parse methods
-                d.run();
+                d.runDOM();
                 infoField.setText("No of Golf Majors: " + d.golfMajors.size() + "\n");
                 for (Golf golf : d.golfMajors) {
                     infoField.append(golf + "\n");

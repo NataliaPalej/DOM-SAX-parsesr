@@ -26,7 +26,7 @@ public class SAX extends DefaultHandler {
     private String tempMajor;
     private Golf tempGolf;
 
-    public void runExample() {
+    public void runSAX() {
         parseDocument();
         outputList();
     }
@@ -53,7 +53,7 @@ public class SAX extends DefaultHandler {
 
     public static void main(String[] args) {
         SAX s = new SAX();
-        s.runExample();
+        s.runSAX();
     }
 //end of main
 
