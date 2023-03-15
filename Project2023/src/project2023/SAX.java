@@ -26,16 +26,17 @@ public class SAX extends DefaultHandler {
     private String tempMajor;
     private Golf tempGolf;
 
-    public void runSAX() {
-        parseDocument();
+    // Method that takes fileName parameter (file path)
+    public void runSAX(String fileName) {
+        parseDocument(fileName);
         outputList();
     }
 
-    private void parseDocument() {
+    private void parseDocument(String fileName) {
         // Get a SAX factory spf
         SAXParserFactory spf = SAXParserFactory.newInstance();
         // Create an instance of file
-        File inputFile = new File("GolfMajors.xml");
+        File inputFile = new File(fileName);
         try {
             // Get an instance of parser
             SAXParser sp = spf.newSAXParser();
@@ -53,7 +54,7 @@ public class SAX extends DefaultHandler {
 
     public static void main(String[] args) {
         SAX s = new SAX();
-        s.runSAX();
+        s.outputList();
     }
 //end of main
 

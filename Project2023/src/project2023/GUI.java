@@ -87,7 +87,7 @@ public class GUI extends JFrame implements ActionListener {
                 // Create new instance of SAX class
                 SAX s = new SAX();
                 // Parse and run the output 
-                s.runSAX();
+                s.runSAX(fileName);
                 // Add amount of Golf Majors
                 infoField.setText("This is SAX parser \nNo of Golf Majors: " + s.golfMajors.size() + "\n");
                 // Iterate through Gold Majors list
