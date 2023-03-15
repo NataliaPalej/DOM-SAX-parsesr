@@ -25,6 +25,11 @@ public class SAX extends DefaultHandler {
     ArrayList<Golf> golfMajors = new ArrayList<>();
     private String tempMajor;
     private Golf tempGolf;
+    
+    public static void main(String[] args) {
+        SAX s = new SAX();
+        s.outputList();
+    }
 
     // Method that takes fileName parameter (file path)
     public void runSAX(String fileName) {
@@ -40,23 +45,19 @@ public class SAX extends DefaultHandler {
         try {
             // Get an instance of parser
             SAXParser sp = spf.newSAXParser();
+            // Parse inputFile
             sp.parse(inputFile, this);
         } catch (IOException | ParserConfigurationException | SAXException e) {
             System.out.println("Error: " + e);
         }
     }
 
+    // Print the array of majors 
     private void outputList() {
         for (Golf golf : golfMajors) {
             System.out.println(golf);
         }
     }
-
-    public static void main(String[] args) {
-        SAX s = new SAX();
-        s.outputList();
-    }
-//end of main
 
     // Event Handlers
     @Override
@@ -66,13 +67,14 @@ public class SAX extends DefaultHandler {
         // Check which tag are we in
         if (qName.equalsIgnoreCase("major")) {
             tempGolf = new Golf();
-            // get the attributes for tag major
+            // Get the attributes for tag major
             String name = attributes.getValue("name");
             String year = attributes.getValue("year");
             String strokePlay = attributes.getValue("strokePlay");
             tempGolf.setName(name);
             tempGolf.setYear(year);
             tempGolf.setStrokePlay(strokePlay);
+        // Go through tags and get the value
         } else if (qName.equalsIgnoreCase("winner")) {
             tempGolf.getWinner();
             isWinner = true;
@@ -104,7 +106,7 @@ public class SAX extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) throws SAXException {
         // Check if end tag was reached 
         if (qName.equalsIgnoreCase("major")) {
-            // if it did - add the element to the list
+            // If it did - add the element to the list
             golfMajors.add(tempGolf);
         } else if (qName.equalsIgnoreCase("winner")) {
             tempGolf.setWinner(tempMajor);
