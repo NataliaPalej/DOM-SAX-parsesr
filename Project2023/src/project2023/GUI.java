@@ -77,11 +77,6 @@ public class GUI extends JFrame implements ActionListener {
             infoField.setText("Please Browse for xml file");
         }
         
-        /**
-         * TODO: 
-         * inputFile doesn't need to be selected since GolfMajors are passed in SAX and DOM classes
-         * might come back and fix later
-         */
         if (saxButton.isSelected()) {
             if (target == parse) {
                 // Create new instance of SAX class
@@ -104,7 +99,7 @@ public class GUI extends JFrame implements ActionListener {
             if (target == parse) {
                 DOM d = new DOM();
                 // Call load and parse methods
-                d.runDOM();
+                d.runDOM(fileName);
                 infoField.setText("This is DOM parser \nNo of Golf Majors: " + d.golfMajors.size() + "\n");
                 for (Golf golf : d.golfMajors) {
                     infoField.append(golf + "\n");

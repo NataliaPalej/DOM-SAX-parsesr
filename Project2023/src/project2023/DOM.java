@@ -23,20 +23,20 @@ public class DOM {
     // Main method
     public static void main(String[] args) {
         DOM display = new DOM();
-        display.runDOM();
+        display.outputData();
     }
 // End of main
     
     // Method that runs the file
-    public void runDOM(){
+    public void runDOM(String fileName){
         // Calling the methods to test if file is parsing properly
-        loadXMLFileIntoDOM();
+        loadXMLFileIntoDOM(fileName);
         parseTheDOM();
         outputData();
     }
     
     // Method that loads XML file into DOM
-    void loadXMLFileIntoDOM() {
+    void loadXMLFileIntoDOM(String fileName) {
         // Create DocumentBuilderFactory instance
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         
@@ -44,7 +44,7 @@ public class DOM {
             // Create DocumentBuilder instance
             DocumentBuilder db = dbf.newDocumentBuilder();
             // Parse xml file to dom Document
-            dom = db.parse("GolfMajors.xml");
+            dom = db.parse(fileName);
         }
         catch (IOException | ParserConfigurationException | SAXException e){
             System.out.println("Error: " + e);
