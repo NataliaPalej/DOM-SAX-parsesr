@@ -90,6 +90,7 @@ public class GUI extends JFrame implements ActionListener {
                     // Print it to the GUI
                     infoField.append(golf + "\n");
                 }
+                infoField.append("Natalia Palej A00279259");
                 this.GolfAL = s.golfMajors;
                 
                 //            infoField.setText(s.run(this.fileName));
@@ -104,6 +105,7 @@ public class GUI extends JFrame implements ActionListener {
                 for (Golf golf : d.golfMajors) {
                     infoField.append(golf + "\n");
                 }
+                infoField.append("Natalia Palej A00279259");
                 this.GolfAL = d.golfMajors;
                 
                 //infoField.setText(d.run(this.fileName));
