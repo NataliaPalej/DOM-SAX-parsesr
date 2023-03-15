@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!-- JS 1 -->
+<Majors xmlns ="http://www.GolfMajors.com"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://www.GolfMajors.com
+                                                          GolfMajors.xsd">
+    <major name="US Masters" year="2022" strokePlay = "true">
+		<winner>Scheffler</winner>
+		<winningScore>-10</winningScore>
+                <courseLocation>Augusta</courseLocation>
+                <course>Woodland</course>
+                <favourite>Rahm</favourite>
+                <youngestCompetitor>Tiger</youngestCompetitor> 
+    </major>
+        
+     <major name="US Womens Open" year="2022" strokePlay = "true">
+		<winner>Lee</winner>
+		<winningScore>-13</winningScore>
+                <courseLocation>PineNeedles</courseLocation>
+                <course>Lake</course>
+                <favourite>Harigae</favourite>
+                <youngestCompetitor>Park</youngestCompetitor> 
+    </major>
+        
+     <major name="US Open" year="2022" strokePlay = "true">
+		<winner>Fitzpatrick</winner>
+		<winningScore>-6</winningScore>
+                <courseLocation>TorreyPines</courseLocation>
+                <course>Links</course>
+                <favourite>Scheffler</favourite>
+                <youngestCompetitor>McDermot</youngestCompetitor>  
+    </major>
+        
+    <major name="British Open" year="2022" strokePlay = "true">
+		<winner>Smith</winner>
+		<winningScore>-20</winningScore>
+                <courseLocation>StAndrews</courseLocation>
+                <course>Links</course>
+                <favourite>Young</favourite>
+                <youngestCompetitor>Morris</youngestCompetitor> 
+    </major>
+            
+     <major name="PGA Championship" year="2022" strokePlay = "true">
+		<winner>Thomas</winner>
+		<winningScore>-5</winningScore>
+                <courseLocation>SouthCarolina</courseLocation>
+                <course>Links</course>
+                <favourite>Lowry</favourite>
+                <youngestCompetitor>Sarazen</youngestCompetitor> 
+     </major>
+    
+</Majors>
+
